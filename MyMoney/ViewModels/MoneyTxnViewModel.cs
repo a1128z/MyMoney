@@ -19,7 +19,6 @@ namespace MyMoney.ViewModels
 
         public string GetDateFormat
         {
-            //
             get { return Date.ToString("yyyy-MM-dd"); }
         }
 

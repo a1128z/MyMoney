@@ -34,7 +34,7 @@ namespace MyMoney.Controllers
                     TxnType = TxnType.Income,
                     Money = 23 * 1,
                     Date = DateTime.Now.AddDays(-i * 12),
-                    Remark = "營收111"
+                    Remark = "營收"
                 });
             }
             return View(moneyTxnViewModels.OrderBy(x => x.Date));
