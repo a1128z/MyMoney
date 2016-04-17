@@ -6,7 +6,7 @@
     Layout = null;
 }
 
-<table class="table">
+<table class="table" style="table-layout:fixed">
     <tr> 
         <th>#</th>
         <th>
@@ -18,7 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
-        <th>
+        <th style="width: 50%">
             @Html.DisplayNameFor(model => model.Remark)
         </th>
     </tr>
@@ -46,7 +46,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
-                <td>
+                <td style="word-wrap:break-word">
                     @Html.DisplayFor(modelItem => item.Remark)
                 </td>
             </tr>

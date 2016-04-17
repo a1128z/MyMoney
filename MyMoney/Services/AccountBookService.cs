@@ -12,7 +12,7 @@ namespace MyMoney.Services
 
         public AccountBookService()
         {
-            this._AccountBookRepository = new AccountBookRepository();
+            _AccountBookRepository = new AccountBookRepository();
         }
 
         public IEnumerable<MoneyTxnViewModel> GetAllOrderByDate()
