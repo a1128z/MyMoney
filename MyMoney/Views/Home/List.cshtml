@@ -7,7 +7,7 @@
 }
 
 <table class="table">
-    <tr>
+    <tr> 
         <th>#</th>
         <th>
             @Html.DisplayNameFor(model => model.TxnType)
@@ -31,7 +31,7 @@
             <tr>
                 <td>@(i++)</td>
                 <td>
-                    @foreach(SelectListItem type in EnumHelper.GetSelectList(typeof(TxnType), item.TxnType))
+                    @foreach (SelectListItem type in EnumHelper.GetSelectList(typeof(TxnType), item.TxnType))
                     {
                         if (type.Selected)
                         {

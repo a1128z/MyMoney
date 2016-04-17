@@ -1,7 +1,6 @@
 ﻿using MyMoney.Enum;
+using MyMoney.Models;
 using MyMoney.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -9,7 +8,9 @@ namespace MyMoney.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(MoneyTxnViewModel moneyTxnViewModel)
+        private MoneyDb moneyDb = new MoneyDb();
+
+        public ActionResult Index()
         {
             return View();
         }
@@ -17,28 +18,20 @@ namespace MyMoney.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var moneyTxnViewModels = new List<MoneyTxnViewModel>();
-            for (int i = 0; i < 10; i++)
+            var moneyTxnViewModels = moneyDb.AccountBook.OrderBy(x => x.Dateee).Select(x => new MoneyTxnViewModel()
             {
-                moneyTxnViewModels.Add(new MoneyTxnViewModel()
-                {
-                    TxnType = TxnType.Expenditure,
-                    Amount = 23 * i,
-                    Date = DateTime.Now.AddDays(-i),
-                    Remark = "食物"
-                });
-            }
-            for (int i = 0; i < 3; i++)
-            {
-                moneyTxnViewModels.Add(new MoneyTxnViewModel()
-                {
-                    TxnType = TxnType.Income,
-                    Amount = 23 * 1,
-                    Date = DateTime.Now.AddDays(-i * 12),
-                    Remark = "營收"
-                });
-            }
-            return View(moneyTxnViewModels.OrderBy(x => x.Date));
+                TxnType = (TxnType)x.Categoryyy,
+                Date = x.Dateee,
+                Amount = x.Amounttt,
+                Remark = x.Remarkkk
+            });
+            return View(moneyTxnViewModels);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            moneyDb.Dispose();
+            base.Dispose(disposing);
         }
     };
 }
