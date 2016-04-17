@@ -11,7 +11,7 @@ namespace MyMoney.ViewModels
         [Display(Name = "類別")]
         public TxnType TxnType { get; set; }
         [Display(Name = "金額")]
-        public double Money { get; set; }
+        public double Amount { get; set; }
         [Display(Name = "日期")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]

@@ -23,7 +23,7 @@ namespace MyMoney.Controllers
                 moneyTxnViewModels.Add(new MoneyTxnViewModel()
                 {
                     TxnType = TxnType.Expenditure,
-                    Money = 23 * i,
+                    Amount = 23 * i,
                     Date = DateTime.Now.AddDays(-i),
                     Remark = "食物"
                 });
@@ -33,7 +33,7 @@ namespace MyMoney.Controllers
                 moneyTxnViewModels.Add(new MoneyTxnViewModel()
                 {
                     TxnType = TxnType.Income,
-                    Money = 23 * 1,
+                    Amount = 23 * 1,
                     Date = DateTime.Now.AddDays(-i * 12),
                     Remark = "營收"
                 });
