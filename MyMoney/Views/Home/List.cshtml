@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MyMoney.ViewModels.MoneyTxnViewModel>
+﻿@using Microsoft.Ajax.Utilities
+@using MyMoney.Enum
+@model IEnumerable<MyMoney.ViewModels.MoneyTxnViewModel>
 
 @{
     Layout = null;
@@ -23,12 +25,20 @@
     @if (Model != null)
     {
         var i = 1;
+        string displayName = null;
         foreach (var item in Model)
         {
             <tr>
                 <td>@(i++)</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.GetTxnTypeName)
+                    @foreach(SelectListItem type in EnumHelper.GetSelectList(typeof(TxnType), item.TxnType))
+                    {
+                        if (type.Selected)
+                        {
+                            displayName = type.Text ?? type.Value;
+                        }
+                    }
+                    @Html.DisplayTextFor(model => displayName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Amount)
@@ -42,6 +52,4 @@
             </tr>
         }
     }
-    
-
 </table>

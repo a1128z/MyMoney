@@ -7,6 +7,7 @@ namespace MyMoney.Enum
     {
         [Display(Name = "支出")]
         Expenditure = 1,
+
         [Display(Name = "收入")]
         Income = 2
     }

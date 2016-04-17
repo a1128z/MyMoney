@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MyMoney.Enum;
+using MyMoney.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MyMoney.Enum;
-using MyMoney.ViewModels;
 
 namespace MyMoney.Controllers
 {
