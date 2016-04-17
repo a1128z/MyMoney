@@ -1,15 +1,12 @@
-﻿using MyMoney.Enum;
-using MyMoney.Models;
-using MyMoney.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using MyMoney.Services;
 
 namespace MyMoney.Controllers
 {
+
     public class HomeController : Controller
     {
-        private MoneyDb moneyDb = new MoneyDb();
-
+        private readonly IAccountBookService _AccountBookService = new AccountBookService();
         public ActionResult Index()
         {
             return View();
@@ -18,20 +15,8 @@ namespace MyMoney.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var moneyTxnViewModels = moneyDb.AccountBook.OrderBy(x => x.Dateee).Select(x => new MoneyTxnViewModel()
-            {
-                TxnType = (TxnType)x.Categoryyy,
-                Date = x.Dateee,
-                Amount = x.Amounttt,
-                Remark = x.Remarkkk
-            });
+            var moneyTxnViewModels = _AccountBookService.GetAllOrderByDate();
             return View(moneyTxnViewModels);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            moneyDb.Dispose();
-            base.Dispose(disposing);
-        }
+        } 
     };
 }
