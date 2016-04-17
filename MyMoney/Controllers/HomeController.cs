@@ -14,6 +14,7 @@ namespace MyMoney.Controllers
             return View();
         }
 
+        [ChildActionOnly]
         public ActionResult List()
         {
             var moneyTxnViewModels = new List<MoneyTxnViewModel>();
