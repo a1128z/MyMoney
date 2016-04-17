@@ -13,15 +13,12 @@ namespace MyMoney.ViewModels
         [Display(Name = "金額")]
         public double Money { get; set; }
         [Display(Name = "日期")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
-
-        public string GetDateFormat
-        {
-            get { return Date.ToString("yyyy-MM-dd"); }
-        }
-
+        
         public string GetTxnTypeName
         {
             get {
