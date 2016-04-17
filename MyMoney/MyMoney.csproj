@@ -210,6 +210,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MoneyDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccountBookRepository.cs" />
+    <Compile Include="Repositories\IAccountBookRepository.cs" />
     <Compile Include="Services\AccountBookService.cs" />
     <Compile Include="Services\IAccountBookService.cs" />
     <Compile Include="Startup.cs" />

@@ -4,7 +4,7 @@ using MyMoney.ViewModels;
 
 namespace MyMoney.Services
 {
-    public interface IAccountBookService : IDisposable
+    public interface IAccountBookService
     {
         IEnumerable<MoneyTxnViewModel> GetAllOrderByDate();
     }
