@@ -13,10 +13,10 @@
             @Html.DisplayNameFor(model => model.TxnType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount)
+            @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model.Amount)
         </th>
     </tr>
     @if (Model != null)
@@ -38,10 +38,10 @@
                     @Html.DisplayTextFor(model => displayName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Date)
+                    @Html.DisplayFor(modelItem => item.Amount)
                 </td>
             </tr>
         }
