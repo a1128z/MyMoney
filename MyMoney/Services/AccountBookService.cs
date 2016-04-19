@@ -22,8 +22,7 @@ namespace MyMoney.Services
             {
                 TxnType = (TxnType)x.Categoryyy,
                 Date = x.Dateee,
-                Amount = x.Amounttt,
-                Remark = x.Remarkkk
+                Amount = x.Amounttt
             });
             return moneyTxnViewModels;
         }
