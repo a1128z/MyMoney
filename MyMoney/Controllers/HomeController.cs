@@ -1,5 +1,6 @@
 ﻿using MyMoney.Services;
 using System.Web.Mvc;
+using MyMoney.ViewModels;
 
 namespace MyMoney.Controllers
 {
@@ -10,6 +11,16 @@ namespace MyMoney.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(MoneyTxnViewModel moneyTxnViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View(moneyTxnViewModel);
         }
 
         [ChildActionOnly]
