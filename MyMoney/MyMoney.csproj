@@ -209,6 +209,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MoneyDb.cs" />
+    <Compile Include="MyHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountBookRepository.cs" />
     <Compile Include="Repositories\IAccountBookRepository.cs" />
