@@ -1,6 +1,8 @@
 ﻿using MyMoney.Enum;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using MyMoney.Filters;
 
 namespace MyMoney.ViewModels
 {
@@ -16,6 +18,7 @@ namespace MyMoney.ViewModels
         public int Amount { get; set; }
 
         [Required(ErrorMessage = "請輸入{0}")]
+        [RemotePlus("TxnDate", "Valid", "", ErrorMessage = "請輸入今天以前日期。")]
         [Display(Name = "日期")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
