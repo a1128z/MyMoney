@@ -21,5 +21,11 @@ namespace MyMoney.Repositories
         {
             return _MoneyDb.Set<AccountBook>();
         }
+
+        public void Add(AccountBook accountBook)
+        {
+            _MoneyDb.AccountBook.Add(accountBook);
+            _MoneyDb.SaveChanges();
+        }
     }
 }

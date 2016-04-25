@@ -18,7 +18,8 @@ namespace MyMoney.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View();
+                _AccountBookService.Add(moneyTxnViewModel);
+                return RedirectToAction("Index", "Home");
             }
             return View(moneyTxnViewModel);
         }

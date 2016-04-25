@@ -7,5 +7,6 @@ namespace MyMoney.Repositories
     public interface IAccountBookRepository : IDisposable
     {
         IQueryable<AccountBook> GetAll();
+        void Add(AccountBook accountBook);
     }
 }

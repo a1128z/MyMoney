@@ -1,8 +1,10 @@
-﻿using MyMoney.Enum;
+﻿using System;
+using MyMoney.Enum;
 using MyMoney.Repositories;
 using MyMoney.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using MyMoney.Models;
 
 namespace MyMoney.Services
 {
@@ -25,6 +27,19 @@ namespace MyMoney.Services
                 Amount = x.Amounttt
             });
             return moneyTxnViewModels;
+        }
+
+        public void Add(MoneyTxnViewModel moneyTxnViewModel)
+        {
+            var accountBook = new AccountBook()
+            {
+                Id = Guid.NewGuid(),
+                Amounttt = moneyTxnViewModel.Amount,
+                Categoryyy = (int)moneyTxnViewModel.TxnType,
+                Dateee = moneyTxnViewModel.Date,
+                Remarkkk = moneyTxnViewModel.Remark
+            };
+            _AccountBookRepository.Add(accountBook);
         }
     }
 }
