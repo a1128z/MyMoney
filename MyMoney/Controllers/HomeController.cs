@@ -14,7 +14,7 @@ namespace MyMoney.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(MoneyTxnViewModel moneyTxnViewModel)
+        public ActionResult Index([Bind(Include = "TxnType,Amount,Date,Remark")] MoneyTxnViewModel moneyTxnViewModel)
         {
             if (ModelState.IsValid)
             {

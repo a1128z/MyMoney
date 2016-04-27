@@ -24,8 +24,9 @@ namespace MyMoney.ViewModels
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }
 
-        [Display(Name = "備註")]
+        [Required(ErrorMessage = "請輸入{0}")]
         [StringLength(100, ErrorMessage = "超過100個字了!")]
+        [Display(Name = "備註")]
         public string Remark { get; set; }
 
     }
