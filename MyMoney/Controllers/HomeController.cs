@@ -1,5 +1,6 @@
 ﻿using MyMoney.Services;
 using System.Web.Mvc;
+using AuthSample.Filter;
 using MyMoney.ViewModels;
 
 namespace MyMoney.Controllers
@@ -14,6 +15,8 @@ namespace MyMoney.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AuthorizePlus]
         public ActionResult Index([Bind(Include = "TxnType,Amount,Date,Remark")] MoneyTxnViewModel moneyTxnViewModel)
         {
             if (ModelState.IsValid)
@@ -32,6 +35,8 @@ namespace MyMoney.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AuthorizePlus]
         public ActionResult IndexForAjax(MoneyTxnViewModel moneyTxnViewModel)
         {
             if (ModelState.IsValid)
