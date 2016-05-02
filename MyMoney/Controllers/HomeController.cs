@@ -30,5 +30,16 @@ namespace MyMoney.Controllers
             var moneyTxnViewModels = _AccountBookService.GetAllOrderByDate();
             return View(moneyTxnViewModels);
         }
+
+        [HttpPost]
+        public ActionResult IndexForAjax(MoneyTxnViewModel moneyTxnViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _AccountBookService.Add(moneyTxnViewModel);
+                return PartialView("List",_AccountBookService.GetAllOrderByDate());
+            }
+            return View("Index",moneyTxnViewModel);
+        }
     };
 }

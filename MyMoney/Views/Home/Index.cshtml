@@ -7,7 +7,7 @@
 }
 
 <div class="well">
-    @using (Html.BeginForm())
+    @using (Ajax.BeginForm("IndexForAjax", new AjaxOptions() { UpdateTargetId = "txnList" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal">
@@ -29,7 +29,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Date, "日期", new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    @Html.EditorFor(model => model.Date, new { @class = "form-control"})
+                    @Html.EditorFor(model => model.Date, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -48,9 +48,12 @@
         </div>
     }
 </div>
-@Html.Action("List", "Home");
+<div id="txnList">
+    @Html.Action("List", "Home")
+</div>
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
 }
