@@ -1,6 +1,8 @@
 ﻿using MyMoney.Models;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
+using MyMoney.ViewModels;
 
 namespace MyMoney.Repositories
 {
@@ -8,5 +10,6 @@ namespace MyMoney.Repositories
     {
         IQueryable<AccountBook> GetAll();
         void Add(AccountBook accountBook);
+        AccountBook GetSingle(Guid id);
     }
 }

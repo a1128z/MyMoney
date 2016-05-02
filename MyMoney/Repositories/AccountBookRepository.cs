@@ -1,5 +1,8 @@
-﻿using MyMoney.Models;
+﻿using System;
+using MyMoney.Models;
 using System.Linq;
+using System.Linq.Expressions;
+using MyMoney.ViewModels;
 
 namespace MyMoney.Repositories
 {
@@ -26,6 +29,11 @@ namespace MyMoney.Repositories
         {
             _MoneyDb.AccountBook.Add(accountBook);
             _MoneyDb.SaveChanges();
+        }
+
+        public AccountBook GetSingle(Guid id)
+        {
+           return _MoneyDb.AccountBook.SingleOrDefault(x => x.Id == id);
         }
     }
 }

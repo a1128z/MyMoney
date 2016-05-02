@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Net;
+using System.Web.Mvc;
 using AuthSample.Filter;
 using MyMoney.Services;
 using MyMoney.ViewModels;
@@ -45,6 +47,20 @@ namespace MyMoney.Areas.Backend.Controllers
                 return PartialView("List",_AccountBookService.GetAllOrderByDate());
             }
             return View("Index",moneyTxnViewModel);
+        }
+
+        public ActionResult Edit(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var moneyTxnViewModel = _AccountBookService.GetSingle(id.Value);
+            if (moneyTxnViewModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(moneyTxnViewModel);
         }
     };
 }

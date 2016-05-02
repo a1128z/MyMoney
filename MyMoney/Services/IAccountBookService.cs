@@ -8,5 +8,6 @@ namespace MyMoney.Services
     {
         IEnumerable<MoneyTxnViewModel> GetAllOrderByDate();
         void Add(MoneyTxnViewModel moneyTxnViewModel);
+        MoneyTxnViewModel GetSingle(Guid id);
     }
 }

@@ -8,6 +8,8 @@ namespace MyMoney.ViewModels
 {
     public class MoneyTxnViewModel
     {
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "請選擇{0}")]
         [Display(Name = "類別")]
         public TxnType TxnType { get; set; }

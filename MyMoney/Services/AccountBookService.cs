@@ -22,6 +22,7 @@ namespace MyMoney.Services
             var accountBooks = _AccountBookRepository.GetAll();
             var moneyTxnViewModels = accountBooks.OrderBy(x => x.Dateee).Select(x => new MoneyTxnViewModel()
             {
+                Id = x.Id,
                 TxnType = (TxnType)x.Categoryyy,
                 Date = x.Dateee,
                 Amount = x.Amounttt
@@ -40,6 +41,19 @@ namespace MyMoney.Services
                 Remarkkk = moneyTxnViewModel.Remark
             };
             _AccountBookRepository.Add(accountBook);
+        }
+
+        public MoneyTxnViewModel GetSingle(Guid id)
+        {
+            var accountBook = _AccountBookRepository.GetSingle(id);
+            return new MoneyTxnViewModel()
+            {
+                Amount = accountBook.Amounttt,
+                Date = accountBook.Dateee,
+                Id = accountBook.Id,
+                Remark = accountBook.Remarkkk,
+                TxnType = (TxnType)accountBook.Categoryyy
+            };
         }
     }
 }
