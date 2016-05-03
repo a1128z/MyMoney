@@ -18,7 +18,6 @@ namespace MyMoney.Areas.Backend.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizePlus]
         public ActionResult Index([Bind(Include = "TxnType,Amount,Date,Remark")] MoneyTxnViewModel moneyTxnViewModel)
         {
             if (ModelState.IsValid)
@@ -38,7 +37,6 @@ namespace MyMoney.Areas.Backend.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizePlus]
         public ActionResult IndexForAjax(MoneyTxnViewModel moneyTxnViewModel)
         {
             if (ModelState.IsValid)
@@ -59,6 +57,23 @@ namespace MyMoney.Areas.Backend.Controllers
             if (moneyTxnViewModel == null)
             {
                 return HttpNotFound();
+            }
+            return View(moneyTxnViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,TxnType,Amount,Date,Remark")] MoneyTxnViewModel moneyTxnViewModel)
+        {
+            if (moneyTxnViewModel == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var oldData = _AccountBookService.GetSingle(moneyTxnViewModel.Id);
+            if (oldData != null && ModelState.IsValid)
+            {
+                _AccountBookService.Edit(moneyTxnViewModel);
+                return RedirectToAction("Index");
             }
             return View(moneyTxnViewModel);
         }

@@ -55,5 +55,19 @@ namespace MyMoney.Services
                 TxnType = (TxnType)accountBook.Categoryyy
             };
         }
+
+        public void Edit(MoneyTxnViewModel newData)
+        {
+            var accountBook = new AccountBook()
+            {
+                Id = newData.Id,
+                Amounttt = newData.Amount,
+                Categoryyy = (int)newData.TxnType,
+                Dateee = newData.Date,
+                Remarkkk = newData.Remark
+            };
+            _AccountBookRepository.Edit(accountBook);
+
+        }
     }
 }

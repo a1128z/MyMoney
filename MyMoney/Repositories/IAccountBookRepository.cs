@@ -11,5 +11,6 @@ namespace MyMoney.Repositories
         IQueryable<AccountBook> GetAll();
         void Add(AccountBook accountBook);
         AccountBook GetSingle(Guid id);
+        void Edit(AccountBook accountBook);
     }
 }
