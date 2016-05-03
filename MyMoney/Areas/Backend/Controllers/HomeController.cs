@@ -77,5 +77,19 @@ namespace MyMoney.Areas.Backend.Controllers
             }
             return View(moneyTxnViewModel);
         }
+
+        public ActionResult Details(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var moneyTxnViewModel = _AccountBookService.GetSingle(id.Value);
+            if (moneyTxnViewModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(moneyTxnViewModel);
+        }
     };
 }
