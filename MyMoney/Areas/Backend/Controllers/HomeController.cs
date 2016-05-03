@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using AuthSample.Filter;
 using MyMoney.Services;
 using MyMoney.ViewModels;
 
 namespace MyMoney.Areas.Backend.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IAccountBookService _AccountBookService = new AccountBookService();
