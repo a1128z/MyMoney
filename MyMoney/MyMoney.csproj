@@ -245,6 +245,7 @@
     <Content Include="Areas\Backend\Views\Home\Index.cshtml" />
     <Content Include="Areas\Backend\Views\Home\List.cshtml" />
     <Content Include="Areas\Backend\Views\Home\Details.cshtml" />
+    <None Include="Areas\Backend\Views\Home\Delete.cshtml" />
     <None Include="Areas\Backend\Views\Home\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />

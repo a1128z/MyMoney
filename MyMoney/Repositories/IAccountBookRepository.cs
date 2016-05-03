@@ -12,5 +12,6 @@ namespace MyMoney.Repositories
         void Add(AccountBook accountBook);
         AccountBook GetSingle(Guid id);
         void Edit(AccountBook accountBook);
+        void Delete(AccountBook accountBook);
     }
 }

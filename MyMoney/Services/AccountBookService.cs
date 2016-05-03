@@ -69,5 +69,11 @@ namespace MyMoney.Services
             _AccountBookRepository.Edit(accountBook);
 
         }
+
+        public void Delete(Guid id)
+        {
+            var accountBook = _AccountBookRepository.GetSingle(id);
+            _AccountBookRepository.Delete(accountBook);
+        }
     }
 }

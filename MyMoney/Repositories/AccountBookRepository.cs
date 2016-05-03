@@ -41,5 +41,11 @@ namespace MyMoney.Repositories
             _MoneyDb.Entry(oldData).CurrentValues.SetValues(accountBook);
             _MoneyDb.SaveChanges();
         }
+
+        public void Delete(AccountBook accountBook)
+        {
+            _MoneyDb.AccountBook.Remove(accountBook);
+            _MoneyDb.SaveChanges();
+        }
     }
 }

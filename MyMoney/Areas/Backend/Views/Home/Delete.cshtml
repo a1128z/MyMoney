@@ -7,7 +7,7 @@
     var date = Model.Date.ToString("yyyy-MM-dd");
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
 <div>
     <h4>MoneyTxn</h4>
@@ -48,6 +48,13 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {collection = "Home", area = "Backend", id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index", new { collection = "Home", area = "Backend" })
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { collection = "Home", area = "Backend" })
+        </div>
+    }
 </p>

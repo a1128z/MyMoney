@@ -10,5 +10,6 @@ namespace MyMoney.Services
         void Add(MoneyTxnViewModel moneyTxnViewModel);
         MoneyTxnViewModel GetSingle(Guid id);
         void Edit(MoneyTxnViewModel newData);
+        void Delete(Guid id);
     }
 }
