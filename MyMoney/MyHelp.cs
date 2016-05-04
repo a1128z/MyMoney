@@ -16,8 +16,6 @@ namespace MyMoney
                 case  TxnType.Income:
                     output = "text-primary";
                     break;
-                default:
-                    break;
             }
             return output;
         }
